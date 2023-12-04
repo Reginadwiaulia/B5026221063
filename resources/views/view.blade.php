@@ -1,69 +1,124 @@
 @extends('master')
 
-@section('title', 'Data Pegawai')
+@section('title','Data Pegawai')
 
 @section('konten')
-    <h2><a href="https://www.malasngoding.com">www.malasngoding.com</a></h2>
-    <h3>View Pegawai</h3>
 
-    <a class="btn btn-primary" href="/pegawai">Kembali</a>
+	<h2><a href="https://www.malasngoding.com">www.malasngoding.com</a></h2>
+	<h3>Data Pegawai</h3>
 
-    <br />
-    <br />
+	<a href="/pegawai" class="btn btn-primary"> Kembali</a>
 
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-3">
-            <div class="card" style="width:200px">
-                <img src="{{ asset('images/bg_02.png') }}">
-                <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
-                    <a href="#" class="btn btn-warning">See Profile</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-8">
-            @foreach ($pegawai as $p)
-                <fieldset disabled>
-                    <form action="/pegawai/update" method="post" class="form-horizontal" role="form">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="id" value="{{ $p->pegawai_id }}">
-                        <div class = "form-group">
-                            <label for = "nama" class = "col-sm-2 control-label">Nama</label>
-                            <div class = "col-sm-10">
-                                <input type="text" required="required" name="nama" value="{{ $p->pegawai_nama }}"
-                                    class="form-control">
-                            </div>
-                        </div>
-                        <div class = "form-group">
-                            <label for = "jabatan" class = "col-sm-2 control-label">Jabatan</label>
-                            <div class = "col-sm-10">
-                                <input type="text" required="required" name="jabatan" value="{{ $p->pegawai_jabatan }}"
-                                    class="form-control">
-                            </div>
-                        </div>
-                        <div class = "form-group">
-                            <label for = "umur" class = "col-sm-2 control-label">Umur</label>
-                            <div class = "col-sm-10">
-                                <input type="number" required="required" name="umur" value="{{ $p->pegawai_umur }}"
-                                    class="form-control">
-                            </div>
-                        </div>
-                        <div class = "form-group">
-                            <label for = "alamat" class = "col-sm-2 control-label">Alamat</label>
-                            <div class = "col-sm-10">
-                                <textarea required="required" name="alamat" class="form-control">{{ $p->pegawai_alamat }}</textarea>
-                            </div>
-                        </div>
-                    </form>
-                </fieldset>
-            @endforeach
-            <div class="row">
-                <div class="col-10 text-center">
-                    <a href="/pegawai" class="btn btn-success w-25 p-2">Ok</a>
-                </div>
-                <div class="col-2"></div>
-            </div>
+	<br/>
+	<br/>
+
+    <style>
+        /* Tambahkan CSS sesuai kebutuhan Anda */
+        .profile-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .profile-container .profile-picture {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-container .profile-picture img {
+            width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .profile-container .divider {
+            border-right: 1px solid #ccc;
+            margin: 0 20px;
+        }
+
+        .profile-container .employee-data {
+            flex: 1;
+        }
+
+        .employee-data form {
+            /* tambahkan gaya form jika diperlukan */
+        }
+
+        .centered-submit {
+            text-align: center;
+        }
+        .submit-button {
+            margin-left: 100px; /* Sesuaikan dengan jumlah margin yang diinginkan */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-picture">
+        {{-- Kotak untuk foto profil --}}
+        <div style="width: 500px; height: 500px; background-color: #ddd; border-radius: 10px; overflow: hidden; position: relative;">
+            {{-- Tambahkan tag img untuk menampilkan foto profil jika ada --}}
+            {{-- <img src="{{ asset('path/to/profile-picture.jpg') }}" alt="Foto Profil"> --}}
         </div>
     </div>
+
+    <div class="divider"></div>
+
+    <div class="employee-data">
+        {{-- Formulir untuk mengedit data pegawai --}}
+        @foreach($pegawai as $p)
+        <form action="/pegawai/update" method="post" class="form-horizontal">
+            {{ csrf_field() }}
+
+            <div class="form-group row">
+                <label for="id" class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <input type="hidden" class="form-control" id="id" name="id" value="{{ $p->pegawai_id }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                    <input type="text" required="required" class="form-control" id="nama" name="nama" value="{{ $p->pegawai_nama }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="jabatan" class="col-sm-2 col-form-label">Jabatan</label>
+                <div class="col-sm-10">
+                    <input type="text" required="required" class="form-control" id="jabatan" name="jabatan" value="{{ $p->pegawai_jabatan }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="umur" class="col-sm-2 col-form-label">Umur</label>
+                <div class="col-sm-10">
+                    <input type="number" required="required" class="form-control" id="umur" name="umur" value="{{ $p->pegawai_umur }}" readonly>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                <div class="col-sm-10">
+                    <textarea input type="text" required="required" class="form-control" id="alamat" name="alamat" readonly>{{ $p->pegawai_alamat }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group row centered-submit submit-button">
+                <div class="col-sm-10">
+                    <a href="/pegawai" class="btn btn-success w-25 p-2">Ok</a>
+                </div>
+            </div>
+        </form>
+        @endforeach
+    </div>
+</div>
+
+
+
 @endsection
