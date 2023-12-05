@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\DB;
 	}
 
 	// method untuk menampilkan view form tambah pegawai
-	public function tambah2()
+	public function beli()
 	{
 
 		// memanggil view tambah
-		return view('tambah2');
+		return view('beli');
 
 	}
 
@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\DB;
 	{
 		// insert data ke table keranjangbelanja
 		DB::table('keranjangbelanja')->insert([
-			'ID' => $request->kodepembelian,
+            'ID' => $request->kodepembelian,
 			'KodeBarang' => $request->kodebarang,
 			'Jumlah' => $request->jumlahpembelian,
 			'Harga' => $request->hargaperitem,
@@ -47,7 +47,7 @@ use Illuminate\Support\Facades\DB;
 	public function hapus($ID)
 	{
 		// menghapus data pegawai berdasarkan id yang dipilih
-		DB::table('keranjangbelanja')->where('ID',$id)->delete();
+		DB::table('keranjangbelanja')->where('ID',$ID)->delete();
 
 		// alihkan halaman ke halaman pegawai
 		return redirect('/keranjangbelanja');

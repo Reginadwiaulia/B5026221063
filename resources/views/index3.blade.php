@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Data Keranjang Belanja')
+@section('title', 'Data KeranjangBelanja')
 
 @section('konten')
 	<h3>Data Keranjang Belanja</h3>
@@ -18,15 +18,16 @@
 		</tr>
 		@foreach($keranjangbelanja as $k)
 		<tr>
-			<td>{{ $p->ID }}</td>
-			<td>{{ $p->Kodebarang }}</td>
-			<td>{{ $p->Jumlahpembelian }}</td>
-			<td>{{ $p->Hargaperitem }}</td>
-            <td>{{ $p->Jumlahpembelian * $p->Hargaperitem }}</td>
+			<td>{{ $k->ID }}</td>
+			<td>{{ $k->KodeBarang }}</td>
+			<td>{{ $k->Jumlah }}</td>
+			<td>Rp{{ number_format ($k->Harga,0,",",".") }}</td>
+            <td>Rp{{ number_format (($k->Jumlah * $k->Harga),0,",",".") }}</td>
 			<td>
-				<a href="/pegawai/hapus/{{ $p->pegawai_id }}" class="btn btn-danger">Hapus</a>
+				<a href="/keranjangbelanja/hapus/{{ $k->ID }}" class="btn btn-danger">hapus</a>
 			</td>
 		</tr>
 		@endforeach
 	</table>
+    {{ $keranjangbelanja->links()}}
 @endsection

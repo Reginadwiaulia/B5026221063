@@ -13,34 +13,31 @@
 
 	<form action="/keranjangbelanja/store" method="post" class="form-horizontal">
 		{{ csrf_field() }}
-		<div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">Kode Pembelian</label>
+		<div class="form-group row">
+            <label for="kodebarang" class="col-sm-2 control-label">Kode Barang</label>
             <div class="col-sm-8">
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukan ID Belanja">
+            <input type="text" class="form-control" id="kodebarang" name="kodebarang" placeholder="Masukan kode pembelian">
             </div>
         </div>
 
-		<div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">KodeBarang</label>
+		<div class="form-group row">
+            <label for="jumlahpembelian" class="col-sm-2 control-label">Jumlah Pembelian</label>
             <div class="col-sm-8">
-            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Masukan KodeBarang">
+            <input type="number" class="form-control" id="jumlahpembelian" name="jumlahpembelian" placeholder="Masukan jumlahpembelian">
             </div>
         </div>
 
-		<div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">JumlahPembelian</label>
+		<div class="form-group row">
+            <label for="hargaperitem" class="col-sm-2 control-label">Harga per Item</label>
             <div class="col-sm-8">
-            <input type="number" class="form-control" id="umur" name="umur" placeholder="Masukan umur pegawai">
+            <input type="number" class="form-control" id="hargaperitem" name="hargaperitem" placeholder="Masukan harga per item">
             </div>
         </div>
 
-		<div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">Hargaperitem</label>
+		<div class="form-group row">
             <div class="col-sm-8">
-            <textarea type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukan alamat pegawai"></textarea>
+            <button type="submit" class="btn btn-primary" value="Simpan Data">Simpan Data</button>
             </div>
         </div>
-
-		<input type="submit" class="btn btn-warning" value="Simpan Data">
 	</form>
 @endsection
