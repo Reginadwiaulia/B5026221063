@@ -23,7 +23,7 @@
 		<div class="form-group">
             <label for="first_name" class="col-sm-2 control-label">Jumlah Pembelian</label>
             <div class="col-sm-8">
-            <input type="text" class="form-control" id="jumlahpembelian" name="jabatan" placeholder="Masukan jumlah pembelian">
+            <input type="text" class="form-control" id="jumlahpembelian" name="jumlahpembelian" placeholder="Masukan jumlah pembelian">
             </div>
         </div>
 

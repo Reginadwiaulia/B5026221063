@@ -5,7 +5,7 @@
 @section('konten')
 	<h3>Data Keranjang Belanja</h3>
 
-	<a href="/keranjangbelanja/belibelanja" class="btn btn-primary"> + Beli</a>
+	<a href="/keranjangbelanja/beli" class="btn btn-primary"> + Beli</a>
 
 	<table class="table table-striped table-hover">
 		<tr>
@@ -20,13 +20,10 @@
 		<tr>
 			<td>{{ $p->ID }}</td>
 			<td>{{ $p->Kodebarang }}</td>
-			<td>{{ $p->pegawai_Jumlah }}</td>
-			<td>{{ $p->pegawai_Harga }}</td>
+			<td>{{ $p->Jumlahpembelian }}</td>
+			<td>{{ $p->Hargaperitem }}</td>
+            <td>{{ $p->Jumlahpembelian * $p->Hargaperitem }}</td>
 			<td>
-				<a href="/pegawai/view/{{ $p->pegawai_id }}" class="btn btn-success">View</a>
-				|
-				<a href="/pegawai/edit/{{ $p->pegawai_id }}" class="btn btn-warning">Edit</a>
-				|
 				<a href="/pegawai/hapus/{{ $p->pegawai_id }}" class="btn btn-danger">Hapus</a>
 			</td>
 		</tr>

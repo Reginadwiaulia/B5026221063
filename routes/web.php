@@ -73,6 +73,10 @@ Route::get('view', function () {
     return view('view');
 });
 
+Route::get('index3', function () {
+    return view('index3');
+});
+
 Route::get('perkalian', 'App\Http\Controllers\DosenController@index') ;
 Route::get('biodata', 'App\Http\Controllers\DosenController@biodata') ;
 Route::get('showjam/{jam}', 'App\Http\Controllers\DosenController@showjam') ;
@@ -91,4 +95,7 @@ Route::post('/pegawai/update','App\Http\Controllers\PegawaiController@update');
 Route::get('/pegawai/hapus/{id}','App\Http\Controllers\PegawaiController@hapus');
 Route::get('/pegawai/cari','App\Http\Controllers\PegawaiController@cari');
 Route::get('/pegawai/view/{id}','App\Http\Controllers\PegawaiController@view');
-
+Route::get('/keranjangbelanja', 'App\Http\Controllers\KeranjangController@index3');
+Route::get('/keranjangbelanja/beli', 'App\Http\Controllers\KeranjangController@tambah2');
+Route::post('/keranjangbelanja/store','App\Http\Controllers\KeranjangController@store');
+Route::get('/keranjangbelanja/hapus/{id}','App\Http\Controllers\KeranjangController@hapus');

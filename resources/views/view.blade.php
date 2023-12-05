@@ -84,41 +84,38 @@
             <div class="form-group row">
                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                 <div class="col-sm-10">
-                    <input type="text" required="required" class="form-control" id="nama" name="nama" value="{{ $p->pegawai_nama }}" readonly>
+                    <input type="text" required="required" readonly class="form-control-plaintext" id="nama" name="nama" value="{{ $p->pegawai_nama }}" readonly>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="jabatan" class="col-sm-2 col-form-label">Jabatan</label>
                 <div class="col-sm-10">
-                    <input type="text" required="required" class="form-control" id="jabatan" name="jabatan" value="{{ $p->pegawai_jabatan }}" readonly>
+                    <input type="text" required="required" readonly class="form-control-plaintext" id="jabatan" name="jabatan" value="{{ $p->pegawai_jabatan }}" readonly>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="umur" class="col-sm-2 col-form-label">Umur</label>
                 <div class="col-sm-10">
-                    <input type="number" required="required" class="form-control" id="umur" name="umur" value="{{ $p->pegawai_umur }}" readonly>
+                    <input type="number" required="required" readonly class="form-control-plaintext" id="umur" name="umur" value="{{ $p->pegawai_umur }}" readonly>
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-10">
-                    <textarea input type="text" required="required" class="form-control" id="alamat" name="alamat" readonly>{{ $p->pegawai_alamat }}</textarea>
+                    <textarea input type="text" required="required" readonly class="form-control-plaintext" id="alamat" name="alamat" readonly>{{ $p->pegawai_alamat }}</textarea>
                 </div>
             </div>
 
             <div class="form-group row centered-submit submit-button">
                 <div class="col-sm-10">
-                    <a href="/pegawai" class="btn btn-success w-25 p-2">Ok</a>
+                    <a href="/pegawai" class="btn btn-danger w-25 p-2">Ok</a>
                 </div>
             </div>
         </form>
         @endforeach
     </div>
 </div>
-
-
-
 @endsection
