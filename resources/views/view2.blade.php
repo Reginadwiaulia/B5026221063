@@ -1,63 +1,40 @@
 @extends('master')
 
-@section('title', 'Data Kursi')
+@section('title', 'Data Buku')
 
 @section('konten')
-@php
-    function translateChar($char){
-        if($char==1){
-            return 'Ya';
-        }
-        else if($char==0){
-            return 'Tidak';
-        }
-        else{
-            return 'Tidak Valid';
-        }
-    }
-@endphp
-    <div class="row justify-content-center">
-        <div class="col-6">
-            <h3 class="text-center">View Kursi</h3>
-
-        </div>
-    </div>
 
 
-    {{--
-    <a class = "col mt-2" style="color:black">Nama :</a>
-    <a style="padding-top: 6pt">{{ $p->pegawai_nama }} </a>
-    --}}
+    <h2 class="text-center">Data Buku</h2><br>
 
-    <div class="row">
-        <div class="col-6"></div>
-        <div class="col-6">
-            @foreach ($kursi as $p)
-            <fieldset disabled>
-                <form action="/kursi/update" method="post" class="form-horizontal " role="form">
-                    {{ csrf_field() }}
-                    <input type="hidden" name="id" value="{{ $p->kodekursi }}">
-                    <div class = "form-group row mt-4">
-                        <label class = "col-3 control-label">Merk Kursi :</label>
-                        <label class = "col-9 control-label">{{ $p->merkkursi }}</label>
+    <a href="/buku" class="btn btn-primary"> Kembali</a>
+
+    <br />
+    <br />
+
+    @foreach ($buku as $p)
+        {{-- <form action="/buku/update" method="post" class="form-horizontal"> --}}
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <div class="col-sm-7">
+                    <div class="card-group" style="height: 400px">
+                        <div class="card bg-dark">
+                            <div class="card-body text-center">
+
+
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <p class="card-text">Kode: {{ $p->kodebuku }}</p>
+                                <p class="card-text">Merk: {{ $p->merkbuku }}</p>
+                                <p class="card-text">Stock: {{ $p->stockbuku }}</p>
+                                <p class="card-text">Tersedia: {{ $p->tersedia }}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class = "form-group row mt-4">
-                        <label class = "col-3 control-label">Stock Kursi :</label>
-                        <label class = "col-9 control-label">{{ $p->stockkursi }}</label>
-                    </div>
-                    <div class = "form-group row mt-4">
-                        <label class = "col-3 control-label">Ketersediaan :</label>
-                        <label class = "col-9 control-label">{{ translateChar($p->tersedia) }}</label>
-                    </div>
-                </form>
-            </fieldset>
-            @endforeach
-            <div class="row">
-                <div class="col-9 text-center">
-                    <a href="/kursi" class="btn btn-success w-25 p-2">OK</a>
                 </div>
             </div>
         </div>
-    </div>
-    <h1> </h1>
+    @endforeach
 @endsection

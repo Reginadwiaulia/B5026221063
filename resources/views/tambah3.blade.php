@@ -1,30 +1,30 @@
 @extends('master')
 
-@section('title', 'Data Kursi')
+@section('title', 'Data Buku')
 
 @section('konten')
 
-	<h3>Data Kursi</h3>
+	<h3>Data Buku</h3>
 
-	<a href="/kursi" class="btn btn-primary"> Kembali</a>
+	<a href="/buku" class="btn btn-primary"> Kembali</a>
 
 	<br/>
 	<br/>
 
-	<form action="/kursi/store" method="post" class="form-horizontal">
+	<form action="/buku/store" method="post" class="form-horizontal">
 		{{ csrf_field() }}
 		<div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">Merk Kursi</label>
+            <label for="first_name" class="col-sm-2 control-label">Merk Buku</label>
             <div class="col-sm-8">
-            <input type="text" class="form-control" id="merkkursi" name="merkkursi" placeholder="Masukan Merk Kursi">
+            <input type="text" class="form-control" id="merkbuku" name="merkbuku" placeholder="Masukan Merk Buku">
             </div>
         </div>
 
 
 		<div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">Stock Kursi</label>
+            <label for="first_name" class="col-sm-2 control-label">Stock Buku</label>
             <div class="col-sm-8">
-            <input type="Number" class="form-control" id="stockkursi" name="stockkursi" placeholder="Masukan Stock Kursi">
+            <input type="Number" class="form-control" id="stockbuku" name="stockbuku" placeholder="Masukan Stock Buku">
             </div>
         </div>
 

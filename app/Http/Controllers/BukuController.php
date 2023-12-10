@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class BukuController extends Controller
 {
-	public function index3()
+	public function index5()
 	{
 		//$pegawai = DB::table('pegawai')->get();
 		$buku = DB::table('buku')->paginate(10);
@@ -32,8 +32,8 @@ class BukuController extends Controller
 	{
 		// insert data ke table pegawai
 		DB::table('buku')->insert([
-			'merkbuku' => $request->merkkursi,
-			'stockbuku' => $request->stockkursi,
+			'merkbuku' => $request->merkbuku,
+			'stockbuku' => $request->stockbuku,
 			'tersedia' => $request->tersedia
 		]);
 		// alihkan halaman ke halaman pegawai
@@ -62,17 +62,17 @@ class BukuController extends Controller
 			'tersedia' => $request->tersedia
 		]);
 		// alihkan halaman ke halaman pegawai
-		return redirect('/kursi');
+		return redirect('/buku');
 	}
 
 	// method untuk hapus data pegawai
 	public function hapus($id)
 	{
 		// menghapus data pegawai berdasarkan id yang dipilih
-		DB::table('kursi')->where('kodekursi',$id)->delete();
+		DB::table('buku')->where('kodebuku',$id)->delete();
 
 		// alihkan halaman ke halaman pegawai
-		return redirect('/kursi');
+		return redirect('/buku');
 	}
 	public function cari(Request $request)
 	{
@@ -80,13 +80,13 @@ class BukuController extends Controller
 		$cari = $request->cari;
 
     		// mengambil data dari table pegawai sesuai pencarian data
-		$kursi = DB::table('buku')
+		$buku = DB::table('buku')
 					->where('merkbuku','like',"%".$cari."%")
                     ->orderBy('merkbuku', 'asc')
 					->paginate();
 
     		// mengirim data pegawai ke view index
-		return view('index3',['buku' => $buku, 'cari' => $cari]);
+		return view('index5',['buku' => $buku, 'cari' => $cari]);
 
 	}
 

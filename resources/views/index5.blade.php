@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Data Kursi')
+@section('title', 'Data Buku')
 
 @section('konten')
 @php
@@ -53,5 +53,5 @@
 		</tr>
 		@endforeach
 	</table>
-	{{ $kursi->links() }}
+	{{ $buku->links() }}
 @endsection
