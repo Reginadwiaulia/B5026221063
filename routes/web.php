@@ -105,3 +105,12 @@ Route::get('/keranjangbelanja', 'App\Http\Controllers\KeranjangController@index3
 Route::get('/keranjangbelanja/beli', 'App\Http\Controllers\KeranjangController@beli');
 Route::post('/keranjangbelanja/store','App\Http\Controllers\KeranjangController@store');
 Route::get('/keranjangbelanja/hapus/{id}','App\Http\Controllers\KeranjangController@hapus');
+
+Route::get('/buku','App\Http\Controllers\BukuController@index5');
+Route::get('/buku/tambah','App\Http\Controllers\KursiController@tambah3');
+Route::post('/buku/store','App\Http\Controllers\KursiController@store');
+Route::get('/buku/edit2/{id}','App\Http\Controllers\KursiController@edit2');
+Route::post('/buku/update','App\Http\Controllers\KursiController@update');
+Route::get('/buku/hapus/{id}','App\Http\Controllers\KursiController@hapus');
+Route::get('/buku/cari','App\Http\Controllers\KursiController@cari');
+Route::get('/buku/view2/{id}','App\Http\Controllers\KursiController@view2');
