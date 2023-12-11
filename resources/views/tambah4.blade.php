@@ -4,37 +4,48 @@
 
 @section('konten')
 
-	<h3>Data Karyawan</h3>
+    <h3>Data Karyawan</h3>
 
-	<a href="/karyawan" class="btn btn-primary"> Kembali</a>
+    <br />
+    <br />
 
-	<br/>
-	<br/>
-
-	<form action="/karyawan/store" method="post" class="form-horizontal">
-		{{ csrf_field() }}
-
-        <div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">namalengkap</label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" id="namalengkap" name="namalengkap" placeholder="Masukan namalengkap">
+    <form action="/karyawan/store" method="post" class="form-horizontal">
+        {{ csrf_field() }}
+        <div class="form-group row">
+            <label for="kodepegawai" class="col-sm-2 col-form-label">Kode Pegawai</label>
+            <div class="col-sm-10">
+                <input type="text" maxlength="5" required="required" class="form-control" placeholder="Masukkan Kode Pegawai" id="kodepegawai" name="kodepegawai">
             </div>
         </div>
-
-		<div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">divisi</label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" id="divisi" name="divisi" placeholder="Masukkan divisi">
+        <div class="form-group row">
+            <label for="namalengkap" class="col-sm-2 col-form-label">Nama Lengkap</label>
+            <div class="col-sm-10">
+                <input type="text" maxlength="50" required="required" class="form-control" placeholder="Masukkan Nama Lengkap" id="namalengkap" name="namalengkap">
             </div>
         </div>
-
-        <div class="form-group">
-            <label for="first_name" class="col-sm-2 control-label">departemen</label>
-            <div class="col-sm-8">
-            <input type="text" class="form-control" id="departemen" name="departemen" placeholder="Masukkan departemen">
+        <div class="form-group row">
+            <label for="divisi" class="col-sm-2 col-form-label">Divisi</label>
+            <div class="col-sm-10">
+                <input type="text" maxlength="20" required="required" class="form-control" placeholder="Masukkan Divisi" id="divisi" name="divisi">
             </div>
         </div>
+        <div class="form-group row">
+            <label for="departemen" class="col-sm-2 col-form-label">Departemen</label>
+            <div class="col-sm-10">
+                <input type="text" maxlength="20" required="required" class="form-control" placeholder="Masukkan Departemen" id="departemen" name="departemen">
+            </div>
+        </div>
+        <br>
 
-		<input type="submit" class="btn btn-warning" value="Simpan Data">
-	</form>
+        <!-- Menampilkan ERROR -->
+        @if ($errors->has('kodepegawai'))
+            <div class="alert alert-danger">
+                {{ $errors->first('kodepegawai') }}
+            </div>
+        @endif
+        <div class="text-center">
+            <a class="btn btn-warning" href="/karyawan"> Kembali</a>
+            <input class="btn btn-success" type="submit" value="SIMPAN">
+        </div>
+    </form>
 @endsection
