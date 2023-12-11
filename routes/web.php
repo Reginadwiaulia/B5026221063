@@ -114,3 +114,12 @@ Route::post('/buku/update','App\Http\Controllers\BukuController@update');
 Route::get('/buku/hapus/{id}','App\Http\Controllers\BukuController@hapus');
 Route::get('/buku/cari','App\Http\Controllers\BukuController@cari');
 Route::get('/buku/view2/{id}','App\Http\Controllers\BukuController@view2');
+
+Route::get('/karyawan','App\Http\Controllers\KaryawanController@index6');
+Route::get('/karyawan/tambah','App\Http\Controllers\KaryawanController@tambah4');
+Route::post('/karyawan/store','App\Http\Controllers\KaryawanController@store');
+Route::get('/karyawan/edit3/{id}','App\Http\Controllers\KaryawanController@edit3');
+Route::post('/karyawan/update','App\Http\Controllers\KaryawanController@update');
+Route::get('/karyawan/hapus/{id}','App\Http\Controllers\KaryawanController@hapus');
+Route::get('/karyawan/cari','App\Http\Controllers\KaryawanController@cari');
+Route::get('/karyawan/view3/{id}','App\Http\Controllers\KaryawanController@view3');
